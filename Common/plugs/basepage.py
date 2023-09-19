@@ -7,22 +7,21 @@ import datetime
 import os
 import sys
 import time
-
-from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC, wait
-
+from public_obj import conf_dir, driver
 from Common.plugs.get_config import r_config
 from Common.plugs.get_log import Log
 
 # NOTICE: 这是我这个的框架设计缺陷，后面需要改进，把一些公用的对象放在一个py模块里,现在这么实现是为了防止循环调用
 # NOTICE: 后面写公用模块的时候，就不会使用r_config方法，这样就不会陷入循环调用
-BASE_DIR = os.path.dirname(os.path.dirname(os.getcwd()))
-if sys.platform == 'win32':
-    conf_dir = os.path.join(BASE_DIR, 'Common/config/config.ini').replace('/', '\\')
-else:
-    conf_dir = os.path.join(BASE_DIR, 'Common/config/config.ini')
-driver_path = r_config(conf_dir, 'chrome_driver', 'chrome_driver')
-driver = webdriver.Chrome(executable_path=driver_path)
+# BASE_DIR = os.path.dirname(os.path.dirname(os.getcwd()))
+# if sys.platform == 'win32':
+#     conf_dir = os.path.join(BASE_DIR, 'Common/config/config.ini').replace('/', '\\')
+# else:
+#     conf_dir = os.path.join(BASE_DIR, 'Common/config/config.ini')
+# driver_path = r_config(conf_dir, 'chrome_driver', 'chrome_driver')
+# driver = webdriver.Chrome(executable_path=driver_path)
+
 img_path = r_config(conf_dir, 'image', 'img_path')
 log_dir = r_config(conf_dir, "log", "log_path")
 logger = Log(log_dir)

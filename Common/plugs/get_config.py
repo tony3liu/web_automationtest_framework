@@ -5,17 +5,17 @@
 # @File    : get_config 读取/修改配置文件的方法
 import configparser
 import logging
-import os
+# import os
 import sys
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.getcwd()))
+from public_obj import conf_dir
+# BASE_DIR = os.path.dirname(os.path.dirname(os.getcwd()))
 # print(BASE_DIR)
-if sys.platform == 'win32':
-    conf_dir = os.path.join(BASE_DIR, 'Common/config/config.ini').replace('/', '\\')
-else:
-    conf_dir = os.path.join(BASE_DIR, 'Common/config/config.ini')
+# if sys.platform == 'win32':
+#     conf_dir = os.path.join(BASE_DIR, 'Common/config/config.ini').replace('/', '\\')
+# else:
+#     conf_dir = os.path.join(BASE_DIR, 'Common/config/config.ini')
 
-
+# print(conf_dir)
 class Config(object):
 
     def __init__(self, path):
